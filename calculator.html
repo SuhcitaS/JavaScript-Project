@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        section{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            
+        }
+        main{
+           display: flex;
+           flex-direction: row;
+           justify-content: center;
+           text-align: center;
+           flex-wrap:nowrap;
+           font-size: 50px;
+           gap: 0;
+        }
+        table{
+            border: 1px solid #000;
+            background-color: #272727;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #bg{
+            background-color: #65c7d0;
+        }
+        #bg:hover{
+            background-color: #57b3bb;
+        }
+        #red{
+            background-color: red;
+        }
+        #red:hover{
+            background-color: rgb(207, 1, 1);
+        }
+        input[type = "button"]{
+            width: 100%;
+            background-color: #b1b1b1;
+            color: #000;
+            font-size: 20px;
+            font-weight: bold;
+            border: 0;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 10vh;
+            cursor: pointer;
+        }
+        input[type = "button"]:hover{
+            background-color: #7a7979;
+        }
+        input[type = "text"]{
+            padding: 5px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid #000;
+            border-radius: 5px;
+            background-color: #d0e6a8;
+            height: 60px;
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <main>
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" id="Equation" readonly placeholder="Calculate your Result">
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick="clearall()" value="AC"></td>
+                    <td><input type="button" onclick="clearonce()" value="C"></td>
+                    <td><input type="button" onclick="dis('%')" value="%"></td>
+                    <td><input type="button" onclick="dis('/')" value="/" id="bg"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick="dis('7')" value="7"></td>
+                    <td><input type="button" onclick="dis('8')" value="8"></td>
+                    <td><input type="button" onclick="dis('9')" value="9"></td>
+                    <td><input type="button" onclick="dis('*')" value="*" id="bg"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick="dis('4')" value="4"></td>
+                    <td><input type="button" onclick="dis('5')" value="5"></td>
+                    <td><input type="button" onclick="dis('6')" value="6"></td>
+                    <td><input type="button" onclick="dis('-')" value="-" id="bg"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick="dis('1')" value="1"></td>
+                    <td><input type="button" onclick="dis('2')" value="2"></td>
+                    <td><input type="button" onclick="dis('3')" value="3"></td>
+                    <td><input type="button" onclick="dis('+')" value="+" id="bg"></td>
+                </tr>
+                <tr>
+                    
+                    <td colspan="2"><input type="button" onclick="dis('0')" value="0"></td>
+                    <td><input type="button" onclick="dis('.')" value="."></td>
+                    <td><input type="button" onclick="solve()" value="=" id="red"></td>
+                </tr>
+            </table>
+        </main>
+    </section>
+
+    <!-- Scripting -->
+
+    <script>
+        let x = document.getElementById("Equation");
+        function dis(val) {
+            x.value += val;
+        }
+
+        function clearall(){
+            x.value = "";
+        }
+
+        function solve(){
+            x.value = eval(x.value);
+        }
+
+        function clearonce(){
+            x.value = x.value.slice(0,-1);
+        }
+    </script>
+</body>
+</html>
